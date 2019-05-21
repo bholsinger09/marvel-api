@@ -1,4 +1,4 @@
-import HeroService from "./heroService";
+import HeroService from "./heroService.js";
 
 //Private
 let _heroService = new HeroService
@@ -23,6 +23,7 @@ function _drawMyHeroList() {
 //Public
 export default class HeroController {
   constructor() {
+
     //Register Subscribers
     _heroService.addSubscribers('apiMarvel', _drawApiMarvel)
     _heroService.addSubscribers('myHeros', _drawMyHeroList)

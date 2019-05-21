@@ -1,4 +1,4 @@
-import Hero from "../models/hero";
+import Hero from "../models/hero.js";
 
 //Private
 //api used for our getters
@@ -8,7 +8,7 @@ let _marvelAPI = axios.create({
 
 let _characters = 'characters?limit=50'
 let _offset = 200
-let _apiKey = '99cf791372929227dca40908cdbf5968'
+let _apiKey = '53496df3cd682930aa9108759e347171'
 
 ///sandbox below where we post data
 let _sandbox = axios.create({
@@ -64,6 +64,8 @@ export default class HeroService {
   getMarvelData() {
     _marvelAPI.get(`${_characters}&offset=${_offset}&apikey=${_apiKey}`)
       .then(res => {
+        let marvelChar = res.data.data.results
+        console.log(marvelChar)
         //your code here
       })
       .catch(err => {

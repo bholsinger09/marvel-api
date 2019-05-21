@@ -1,4 +1,4 @@
-import HeroController from "./components/heroController";
+import HeroController from "./components/heroController.js";
 
 class App {
   constructor() {

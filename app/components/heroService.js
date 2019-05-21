@@ -61,12 +61,16 @@ export default class HeroService {
   //   return new Hero(_state.activeHero)
   // }
 
-  getMarvelData() {
+  getMarvelData(name) {
+    name = name || ''
     _marvelAPI.get(`${_characters}&offset=${_offset}&apikey=${_apiKey}`)
       .then(res => {
         let marvelChar = res.data.data.results
+        //location of data when retrieving from api
+        //storing in res 
+        //location on database data.data.results 
         console.log(marvelChar)
-        //your code here
+
       })
       .catch(err => {
         console.error(err)

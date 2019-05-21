@@ -5,6 +5,13 @@ let _heroService = new HeroService
 
 
 function _drawApiMarvel() {
+  let heros = _heroService.ApiHeros
+  let template = ''
+  for (let i = 0; i < heros.length; i++) {
+    let hero = heros[i];
+    template += `<li>${hero.name} <button onclick="app.controllers.pokeController.getDetails('${hero.name}')">Get Details</button></li>`
+  }
+  document.getElementById('api-pokemon').innerHTML = template
 
 }
 
@@ -26,16 +33,17 @@ export default class HeroController {
 
     //Register Subscribers
     _heroService.addSubscribers('apiMarvel', _drawApiMarvel)
-    _heroService.addSubscribers('myHeros', _drawMyHeroList)
-    _heroService.addSubscribers('activeHero', _drawActiveHero)
+    //not needed yet _heroService.addSubscribers('myHeros', _drawMyHeroList)
+    //not needed yet _heroService.addSubscribers('activeHero', _drawActiveHero)
 
     //getData
     _heroService.getMarvelData()
   }
 
-  // getDetails(name) {
+  getDetails() {
+    _heroService.ApiHeros()
 
-  // }
+  }
 
   // addHero() {
 

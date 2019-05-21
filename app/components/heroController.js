@@ -13,6 +13,7 @@ function _drawActiveHero() {
 }
 
 function _drawMyHeroList() {
+
   //let heros = 
   //let template = ''
   //for loop

@@ -40,8 +40,12 @@ function _setState(propName, data) {
 export default class HeroService {
   //this has a default constructor 
   //add subscribers first 
+
   addSubscribers(propName, fn) {
     _subscribers[propName].push(fn)
+  }
+  consoleTest() {
+    console.log('service works ')
   }
   //below are the getters 
   //getters will be marvelapi , method to get list of heros, method to get active list

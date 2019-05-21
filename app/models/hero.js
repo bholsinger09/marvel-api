@@ -7,3 +7,10 @@ export default class Hero {
     return ``
   }
 }
+
+
+
+// name: { type: String, required: true },
+// img: { type: String, required: true },
+// description: { type: String, required: true },
+// user: { type: String, required: true }

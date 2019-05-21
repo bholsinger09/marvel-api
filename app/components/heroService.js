@@ -1,13 +1,22 @@
 import Hero from "../models/hero";
 
 //Private
-let _marvelApi = axios.create({
-  baseURL: ''
+//api used for our getters
+let _marvelAPI = axios.create({
+  baseURL: 'https://gateway.marvel.com:443/v1/public'
 })
 
+let _characters = 'characters?limit=50'
+let _offset = 200
+let _apiKey = '99cf791372929227dca40908cdbf5968'
+
+///sandbox below where we post data
 let _sandbox = axios.create({
-  baseURL: 'https://bcw-sandbox.herokuapp.com/api/BenH/pokemon'
+  baseURL: 'https://bcw-sandbox.herokuapp.com/api/Mark/pokemon'
 })
+
+
+
 
 
 let _state = { // data
@@ -48,15 +57,16 @@ export default class PokemonService {
     return new Hero(_state.activeHero)
   }
 
-
-  getApiMarvel(name) {
-    name = name || ''
-    _marvelApi.get(name) //send request to api
-      .then(response => {
-        let heroData = response.data
-        //conditional statement to set state here 
+  getMarvelData() {
+    _marvelAPI.get(`${_characters}&offset=${_offset}&apikey=${_apiKey}`)
+      .then(res => {
+        //your code here
+      })
+      .catch(err => {
+        console.error(err)
       })
   }
+
 
   getMyHeros() {
     //set getter and catch

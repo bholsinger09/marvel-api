@@ -27,7 +27,7 @@ let _state = { // data
 
 let _subscribers = { //functions to run when data changes
   apiMarvel: [],
-  myHero: [],
+  myHeros: [],
   activeHero: []
 }
 
@@ -37,7 +37,7 @@ function _setState(propName, data) {
 }
 
 //Public
-export default class PokemonService {
+export default class HeroService {
   //this has a default constructor 
   //add subscribers first 
   addSubscribers(propName, fn) {
@@ -45,17 +45,17 @@ export default class PokemonService {
   }
   //below are the getters 
   //getters will be marvelapi , method to get list of heros, method to get active list
-  get ApiPokemon() {
+  get ApiHeros() {
     return _state.apiMarvel
   }
 
-  get MyPokemon() {
-    return _state.myHero.map(h => new Hero(h))
-  }
+  // get MyHero() {
+  //   return _state.myHero.map(h => new Hero(h))
+  // }
 
-  get ActivePokemon() {
-    return new Hero(_state.activeHero)
-  }
+  // get ActiveHero() {
+  //   return new Hero(_state.activeHero)
+  // }
 
   getMarvelData() {
     _marvelAPI.get(`${_characters}&offset=${_offset}&apikey=${_apiKey}`)
@@ -68,37 +68,37 @@ export default class PokemonService {
   }
 
 
-  getMyHeros() {
-    //set getter and catch
-    //this is where we map over the data from api to set the functions
-    // _sandbox.get()
-    //   .then(response => {
-    //     let hero = response.data.data.map(p => new Hero(p))
-    //     _setState('myHero', hero)
-    //   })
-    //   .catch(err => {
-    //     console.error(err)
-    //   })
-  }
+  // getMyHeros() {
+  //   //set getter and catch
+  //   //this is where we map over the data from api to set the functions
+  //   // _sandbox.get()
+  //   //   .then(response => {
+  //   //     let hero = response.data.data.map(p => new Hero(p))
+  //   //     _setState('myHero', hero)
+  //   //   })
+  //   //   .catch(err => {
+  //   //     console.error(err)
+  //   //   })
+  // }
 
 
-  addHero() {
-    // working with sand box
-    // .post to add activeHero 
-    // _sandbox.post('', _state.activeHero) //create pokemon in database
-    //   .then(response => {
-    //     this.getMyHero()
-    //   })
-    //   .catch(err => {
-    //     console.error(err)
-    //   })
-  }
+  // addHero() {
+  //   // working with sand box
+  //   // .post to add activeHero 
+  //   // _sandbox.post('', _state.activeHero) //create pokemon in database
+  //   //   .then(response => {
+  //   //     this.getMyHero()
+  //   //   })
+  //   //   .catch(err => {
+  //   //     console.error(err)
+  //   //   })
+  // }
 
-  removePokemon(id) {
-    _sandbox.delete(id)
-      .then(response => {
-        this.getMyHeros()
-      })
-  }
+  // removeHero(id) {
+  //   _sandbox.delete(id)
+  //     .then(response => {
+  //       this.getMyHeros()
+  //     })
+  // }
 
 }

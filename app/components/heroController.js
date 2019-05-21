@@ -1,5 +1,7 @@
+import HeroService from "./heroService";
+
 //Private
-let _heroService = new heroService()
+let _heroService = new HeroService
 
 
 function _drawApiMarvel() {
@@ -11,7 +13,7 @@ function _drawActiveHero() {
 }
 
 function _drawMyHeroList() {
-  //let pokemon = 
+  //let heros = 
   //let template = ''
   //for loop
   //select element 
@@ -21,10 +23,12 @@ function _drawMyHeroList() {
 export default class HeroController {
   constructor() {
     //Register Subscribers
-
+    _heroService.addSubscribers('apiMarvel', _drawApiMarvel)
+    _heroService.addSubscribers('myHeros', _drawMyHeroList)
+    _heroService.addSubscribers('activeHero', _drawActiveHero)
 
     //getData
-
+    _heroService.getMarvelData()
   }
 
   // getDetails(name) {

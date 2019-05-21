@@ -9,7 +9,7 @@ function _drawApiMarvel() {
   let template = ''
   for (let i = 0; i < heros.length; i++) {
     let hero = heros[i];
-    template += `<li>${hero.name} <button onclick="app.controllers.pokeController.getDetails('${hero.name}')">Get Details</button></li>`
+    template += _heroService.
   }
   document.getElementById('api-pokemon').innerHTML = template
 

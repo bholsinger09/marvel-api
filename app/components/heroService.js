@@ -76,6 +76,9 @@ export default class HeroService {
         console.error(err)
       })
   }
+  get Template() {
+
+  }
 
 
   // getMyHeros() {
